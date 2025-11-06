@@ -26,4 +26,5 @@ jobs:
           CF_TOKEN_2: ${{ secrets.CF_TOKEN_2 }}
           CF_TOKEN_3: ${{ secrets.CF_TOKEN_3 }}
           CF_TOKEN_4: ${{ secrets.CF_TOKEN_4 }}
+          CF_TOKEN_5: ${{ secrets.CF_TOKEN_5 }}
         run: python output/data/cf_update.py
