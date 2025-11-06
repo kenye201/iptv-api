@@ -1,26 +1,27 @@
 name: Push Cloudflare A Records
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:       # 手动触发
   schedule:
-    - cron: "0 * * * *"   # 每小时一次（UTC），按需修改
+    - cron: "0 */6 * * *"  # 每6小时自动执行一次
 
 jobs:
-  update-cf-records:
+  push-a-records:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: 🐍 Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.10"
 
-      - name: Install dependencies
+      - name: ⚙️ Install dependencies
         run: pip install requests
 
-      - name: Run CF push script
+      - name: 🚀 Run CF push script
         env:
           CF_TOKEN_1: ${{ secrets.CF_TOKEN_1 }}
           CF_TOKEN_2: ${{ secrets.CF_TOKEN_2 }}
@@ -28,5 +29,5 @@ jobs:
           CF_TOKEN_4: ${{ secrets.CF_TOKEN_4 }}
           CF_TOKEN_5: ${{ secrets.CF_TOKEN_5 }}
         run: |
-          echo "Running cf_push.py..."
-          python output/data/cf_push.py
+          echo "🔧 Starting Cloudflare A record update..."
+          PYTHONUNBUFFERED=1 python ./output/data/push_cf_a_records.py
