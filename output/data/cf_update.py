@@ -12,6 +12,10 @@ CF_ACCOUNTS = [
     {
         "token": os.getenv("CF_TOKEN_2"),  # 对应 Secrets: CF_TOKEN_2
         "domains": ["e.5.9.f.0.7.4.0.1.0.0.2.ip6.arpa", "a.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"]
+    },
+    {
+        "token": os.getenv("CF_TOKEN_3"),  # 对应 Secrets: CF_TOKEN_3
+        "domains": ["6.b.9.d.0.7.4.0.1.0.0.2.ip6.arpa", "e.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"]
     }
 ]
 
