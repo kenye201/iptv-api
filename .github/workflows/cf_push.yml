@@ -1,18 +1,18 @@
-name: Update Cloudflare DNS
+name: Push Cloudflare A Records
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"  # 每小时执行一次
+    - cron: "0 * * * *"   # 每小时一次（UTC），按需修改
 
 jobs:
-  update-dns:
+  update-cf-records:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
@@ -20,11 +20,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run Cloudflare update script
+      - name: Run CF push script
         env:
           CF_TOKEN_1: ${{ secrets.CF_TOKEN_1 }}
           CF_TOKEN_2: ${{ secrets.CF_TOKEN_2 }}
           CF_TOKEN_3: ${{ secrets.CF_TOKEN_3 }}
           CF_TOKEN_4: ${{ secrets.CF_TOKEN_4 }}
           CF_TOKEN_5: ${{ secrets.CF_TOKEN_5 }}
-        run: python output/data/cf_update.py
+        run: |
+          echo "Running cf_push.py..."
+          python output/data/cf_push.py
