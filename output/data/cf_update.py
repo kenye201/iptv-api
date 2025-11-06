@@ -7,18 +7,18 @@ import os
 CF_ACCOUNTS = [
     {
         "token": os.getenv("CF_TOKEN_1"),  # 对应 Secrets: CF_TOKEN_1
-        "domains": ["example1.com", "example2.com"]
+        "domains": ["2.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa", "3.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa"]
     },
     {
         "token": os.getenv("CF_TOKEN_2"),  # 对应 Secrets: CF_TOKEN_2
-        "domains": ["example3.com"]
+        "domains": ["e.5.9.f.0.7.4.0.1.0.0.2.ip6.arpa", "a.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"]
     }
 ]
 
 # 仓库路径下的 IP 列表文件
 IP_LIST_FILE = "output/data/zx443.txt"
 
-SUBDOMAIN_PREFIX = "www"
+SUBDOMAIN_PREFIX = "hao"
 TTL = 120
 PROXIED = False
 RECORDS_PER_DOMAIN = 4  # 每个域名保持4条A记录
