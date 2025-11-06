@@ -20,7 +20,11 @@ CF_ACCOUNTS = [
     {
         "token": os.getenv("CF_TOKEN_4"),  # 对应 Secrets: CF_TOKEN_4
         "domains": ["5.b.a.f.0.7.4.0.1.0.0.2.ip6.arpa", "a.3.8.f.f.f.0.7.0.0.6.2.ip6.arpa"]
-    }
+    },
+    {
+        "token": os.getenv("CF_TOKEN_5"),  # 对应 Secrets: CF_TOKEN_5     
+        "domains": ["3.8.1.8.0.7.4.0.1.0.0.2.ip6.arpa", "4.a.8.4.0.7.4.0.1.0.0.2.ip6.arpa"]
+    }    
 ]
 
 # 仓库路径下的 IP 列表文件
