@@ -2,53 +2,44 @@ import requests
 import random
 import time
 import sys
+import os
 
 # ✅ 实时输出日志
 print = lambda *args, **kwargs: __builtins__.print(*args, **{**kwargs, "flush": True})
 
+# ✅ 从环境变量读取 Token
 CF_ACCOUNTS = [
     {
-        "token_env": "CF_TOKEN_1",
-        "domains": [
-            "2.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa",
-            "3.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa"
-        ]
+        "token": os.getenv("CF_TOKEN_1"),
+        "domains": ["example1.com", "example2.com"]
     },
     {
-        "token_env": "CF_TOKEN_2",
-        "domains": [
-            "e.5.9.f.0.7.4.0.1.0.0.2.ip6.arpa",
-            "a.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"
-        ]
+        "token": os.getenv("CF_TOKEN_1"),
+        "domains": ["2.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa","3.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa"]
     },
     {
-        "token_env": "CF_TOKEN_3",
-        "domains": [
-            "6.b.9.d.0.7.4.0.1.0.0.2.ip6.arpa",
-            "e.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"
-        ]
+        "token": os.getenv("CF_TOKEN_2"),
+        "domains": ["e.5.9.f.0.7.4.0.1.0.0.2.ip6.arpa","a.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"]
     },
     {
-        "token_env": "CF_TOKEN_4",
-        "domains": [
-            "5.b.a.f.0.7.4.0.1.0.0.2.ip6.arpa",
-            "a.3.8.f.f.f.0.7.0.0.6.2.ip6.arpa"
-        ]
+        "token": os.getenv("CF_TOKEN_3"),
+        "domains": ["6.b.9.d.0.7.4.0.1.0.0.2.ip6.arpa","e.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa"]
     },
     {
-        "token_env": "CF_TOKEN_5",
-        "domains": [
-            "3.8.1.8.0.7.4.0.1.0.0.2.ip6.arpa",
-            "4.a.8.4.0.7.4.0.1.0.0.2.ip6.arpa"
-        ]
+        "token": os.getenv("CF_TOKEN_4"),
+        "domains": ["5.b.a.f.0.7.4.0.1.0.0.2.ip6.arpa","a.3.8.f.f.f.0.7.0.0.6.2.ip6.arpa"]
+    },
+    {
+        "token": os.getenv("CF_TOKEN_5"),
+        "domains": ["3.8.1.8.0.7.4.0.1.0.0.2.ip6.arpa","4.a.8.4.0.7.4.0.1.0.0.2.ip6.arpa"]
     }
 ]
 
 IP_LIST_FILE = "./output/data/zx443.txt"
-SUBDOMAIN_PREFIX = "hao"
+SUBDOMAIN_PREFIX = "www"
 TTL = 120
 PROXIED = False
-RECORDS_PER_DOMAIN = 4  # 每个域名保持 4 条 A 记录
+RECORDS_PER_DOMAIN = 4  # 每个域名保持4条A记录
 
 def get_random_ips(ip_file, count):
     with open(ip_file, "r") as f:
@@ -58,6 +49,8 @@ def get_random_ips(ip_file, count):
     return random.sample(ips, count)
 
 def get_zone_id(domain, token):
+    if not token:
+        raise Exception(f"⚠️ 未检测到 {domain} 的 Cloudflare Token")
     url = f"https://api.cloudflare.com/client/v4/zones?name={domain}"
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     r = requests.get(url, headers=headers)
