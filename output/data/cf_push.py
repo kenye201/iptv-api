@@ -11,10 +11,6 @@ print = lambda *args, **kwargs: __builtins__.print(*args, **{**kwargs, "flush": 
 CF_ACCOUNTS = [
     {
         "token": os.getenv("CF_TOKEN_1"),
-        "domains": ["example1.com", "example2.com"]
-    },
-    {
-        "token": os.getenv("CF_TOKEN_1"),
         "domains": ["2.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa","3.c.4.f.0.7.4.0.1.0.0.2.ip6.arpa"]
     },
     {
