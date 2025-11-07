@@ -32,7 +32,7 @@ CF_ACCOUNTS = [
 ]
 
 IP_LIST_FILE = "./output/data/zx443.txt"
-SUBDOMAIN_PREFIX = "www"
+SUBDOMAIN_PREFIX = "hao"
 TTL = 120
 PROXIED = False
 RECORDS_PER_DOMAIN = 4  # 每个域名保持4条A记录
