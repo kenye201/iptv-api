@@ -28,6 +28,10 @@ CF_ACCOUNTS = [
     {
         "token": os.getenv("CF_TOKEN_5"),
         "domains": ["3.8.1.8.0.7.4.0.1.0.0.2.ip6.arpa","4.a.8.4.0.7.4.0.1.0.0.2.ip6.arpa"]
+    },
+    {
+        "token": os.getenv("CF_TOKEN_6"),
+        "domains": ["c.9.0.4.0.7.4.0.1.0.0.2.ip6.arpa","c.9.8.4.0.7.4.0.1.0.0.2.ip6.arpa"]
     }
 ]
 
