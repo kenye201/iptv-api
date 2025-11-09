@@ -43,7 +43,7 @@ IP_LIST_FILE = "./output/data/zx443.txt"
 SUBDOMAIN_PREFIX = "hao"
 TTL = 120
 PROXIED = False
-RECORDS_PER_DOMAIN = 4  # 每个域名保持4条A记录
+RECORDS_PER_DOMAIN = 5  # 每个域名保持4条A记录
 
 def get_random_ips(ip_file, count):
     with open(ip_file, "r") as f:
