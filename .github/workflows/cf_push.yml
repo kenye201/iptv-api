@@ -29,6 +29,7 @@ jobs:
           CF_TOKEN_4: ${{ secrets.CF_TOKEN_4 }}
           CF_TOKEN_5: ${{ secrets.CF_TOKEN_5 }}
           CF_TOKEN_6: ${{ secrets.CF_TOKEN_6 }}
+          CF_TOKEN_7: ${{ secrets.CF_TOKEN_7 }}
         run: |
           echo "🔧 Starting Cloudflare A record update..."
           PYTHONUNBUFFERED=1 python ./output/data/cf_push.py
