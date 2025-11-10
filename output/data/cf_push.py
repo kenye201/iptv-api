@@ -15,7 +15,7 @@ CF_ACCOUNTS = [
     },
     {
         "token": os.getenv("CF_TOKEN_2"),
-        "domains": ["e.5.9.f.0.7.4.0.1.0.0.2.ip6.arpa","a.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa","bubt.netlib.re","bubr.netlib.re","buyg.netlib.re"]
+        "domains": ["e.5.9.f.0.7.4.0.1.0.0.2.ip6.arpa","a.a.9.d.0.7.4.0.1.0.0.2.ip6.arpa","hohc.netlib.re","hohs.netlib.re","hohx.netlib.re"]
     },
     {
         "token": os.getenv("CF_TOKEN_3"),
