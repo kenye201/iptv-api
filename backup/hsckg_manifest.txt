@@ -1,0 +1,7 @@
+hsckg_backup.tar.gz.part01
+hsckg_backup.tar.gz.part02
+hsckg_backup.tar.gz.part03
+hsckg_backup.tar.gz.part04
+hsckg_backup.tar.gz.part05
+hsckg_backup.tar.gz.part06
+hsckg_backup.tar.gz.part07
